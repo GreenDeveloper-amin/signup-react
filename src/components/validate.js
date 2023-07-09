@@ -2,35 +2,35 @@ export const validate = (data) => {
   const errors = {};
 
   if (!data.name.trim()) {
-    errors.name = "username is required";
+    errors.name = "نام کاربری را وارد کنید ";
   } else {
     delete errors.name;
   }
   if (!data.email) {
-    errors.email = "email requires";
+    errors.email = "ایمیل را وارد کنید";
   } else if (!/\S+@\S+\.\S+/.test(data.email)) {
-    errors.email = "Email address is invalid";
+    errors.email = "ایمیل شما اشتباه است";
   } else {
     delete errors.email;
   }
   if (!data.password) {
-    errors.password = "password required";
+    errors.password = "پسورد را وارد کنید";
   } else if (data.password.length < 6) {
-    errors.password = "password need to be 6 character or more";
+    errors.password = "پشورد شما باید  از 6 کاراکتر بیشتر باشد";
   } else {
     delete errors.password;
   }
   if (!data.confirmPassword) {
-    errors.confirmPassword = "confirm the password";
+    errors.confirmPassword = "تایید پسورد را وارد کنید";
   } else if (data.confirmPassword !== data.password) {
-    errors.confirmPassword = "password do not match";
+    errors.confirmPassword = "پسورد ها باهم مطابقت ندارند";
   } else {
     delete errors.confirmPassword;
   }
   if (data.isAccept) {
     delete errors.isAccept;
   } else {
-    errors.isAccept = "Accept our regulations";
+    errors.isAccept = "شرایط و قوانین را قبول کنید";
   }
 
   return errors;
