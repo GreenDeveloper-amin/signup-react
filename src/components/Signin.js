@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Inputs from "./inputs";
 import { validate } from "./validate";
+import { ToastContainer } from "react-toastify";
+import { notify } from "./toast";
+import "react-toastify/dist/ReactToastify.css";
 const Signin = () => {
   const [data, setData] = useState({
     name: "",
@@ -18,7 +21,9 @@ const Signin = () => {
   }, [data]);
 
   const focusHandler = (event) => {
-    setTouched({ ...touched, [event.target.name]: true });
+    setTimeout(() => {
+      setTouched({ ...touched, [event.target.name]: true });
+    }, 200);
   };
 
   const changeHandler = (event) => {
@@ -28,9 +33,25 @@ const Signin = () => {
       setData({ ...data, [event.target.name]: event.target.value });
     }
   };
+  const submitHandler = (event) => {
+    event.preventDefault();
+    if (Object.keys(errors).length) {
+      notify("error", "Sign Up is Failed");
+      setTouched({
+        name: true,
+        email: true,
+        password: true,
+        confirmPassword: true,
+        isAccept: true,
+      });
+    } else {
+      notify("success", "Sign Up Successfuly 😁");
+    }
+  };
   return (
     <article className=" w-full fixed  flex justify-center items-center top-0 h-full bg-neutral-100 ">
       <form
+        onSubmit={submitHandler}
         action="#"
         className="flex flex-col w-[400px] items-center    border border-green-300 pb-8  rounded bg-white ">
         <p className="text-3xl mt-4 mb-3 text-green-400">Sign Up</p>
@@ -103,18 +124,18 @@ const Signin = () => {
           onTouch={focusHandler}
           onChange={changeHandler}
           value={data.isAccept}
-          containerStyle="justify-between my-12 w-[76%]"
-          LableStyle="text-base  w-full "
-          inputstyle="w-[30px]"
+          containerStyle="justify-between items-center my-6 w-[76%]"
+          LableStyle="text-[16px] w-full "
+          inputstyle="w-[40px] h-12 "
           type="checkbox"
           label="I accept terms of privacy policy"
           name="isAccept"
         />
-        {/* {errors.isAccept && touched.isAccept && (
-          <span className="text-sm w-[76%] m-0 text-left mb-2 text-rose-500">
+        {errors.isAccept && touched.isAccept && (
+          <span className=" w-[76%] text-left relative bottom-8 text-[12px] text-rose-500">
             {errors.isAccept}
           </span>
-        )} */}
+        )}
         <div className="flex justify-between items-center w-[76%] pt-4">
           <a href="/#">
             <button className=" text-blue-400 px-3 py-2 rounded text-xl transition-all duration-300 hover:rotate-6 hover:scale-110">
@@ -128,6 +149,7 @@ const Signin = () => {
           </button>
         </div>
       </form>
+      <ToastContainer />
     </article>
   );
 };
