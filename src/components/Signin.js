@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Inputs from "./inputs";
 import { validate } from "./validate";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, Zoom } from "react-toastify";
 import { notify } from "./toast";
 import "react-toastify/dist/ReactToastify.css";
 const Signin = () => {
@@ -77,7 +77,7 @@ const Signin = () => {
 
         {errors.name && touched.name && (
           <div className="text-left w-[76%] animate-pulse">
-            <span className="text-[5px] transition-all duration-300 m-0 text-left px-2 py-1 bg-red-200 mb-2 rounded   text-rose-500 shadow-lg ">
+            <span className="text-[12px] transition-all duration-300 m-0 text-left px-2 py-1 bg-red-200 mb-2 rounded   text-rose-500 shadow-lg ">
               {errors.name}
             </span>
           </div>
@@ -96,7 +96,7 @@ const Signin = () => {
 
         {errors.email && touched.email && (
           <div className="text-left w-[76%] animate-pulse">
-            <span className="text-[5px] transition-all duration-300 m-0 text-left px-2 py-1 bg-red-200 mb-2 rounded   text-rose-500 shadow-lg ">
+            <span className="text-[12px] transition-all duration-300 m-0 text-left px-2 py-1 bg-red-200 mb-2 rounded   text-rose-500 shadow-lg ">
               {errors.email}
             </span>
           </div>
@@ -115,7 +115,7 @@ const Signin = () => {
 
         {errors.password && touched.password && (
           <div className="text-left w-[76%] animate-pulse">
-            <span className="text-[5px] transition-all duration-300 m-0 text-left px-2 py-1 bg-red-200 mb-2 rounded   text-rose-500 shadow-lg ">
+            <span className="text-[12px] transition-all duration-300 m-0 text-left px-2 py-1 bg-red-200 mb-2 rounded   text-rose-500 shadow-lg ">
               {errors.password}
             </span>
           </div>
@@ -134,7 +134,7 @@ const Signin = () => {
 
         {errors.confirmPassword && touched.confirmPassword && (
           <div className="text-left w-[76%] animate-pulse">
-            <span className="text-[5px] transition-all duration-300 m-0 text-left px-2 py-1 bg-red-200 mb-2 rounded   text-rose-500 shadow-lg ">
+            <span className="text-[12px] transition-all duration-300 m-0 text-left px-2 py-1 bg-red-200 mb-2 rounded   text-rose-500 shadow-lg ">
               {errors.confirmPassword}
             </span>
           </div>
@@ -154,7 +154,7 @@ const Signin = () => {
         />
         {errors.isAccept && touched.isAccept && (
           <div className="text-right w-[76%] animate-pulse">
-            <span className="text-[5px] transition-all duration-300 text-left px-2 py-1 bg-red-200 mb-2 rounded relative bottom-5  text-rose-500 shadow-lg ">
+            <span className="text-[12px] transition-all duration-300 text-left px-2 py-1 bg-red-200 mb-2 rounded relative bottom-5  text-rose-500 shadow-lg ">
               {errors.isAccept}
             </span>
           </div>
@@ -173,13 +173,14 @@ const Signin = () => {
         </div>
       </form>
       <ToastContainer
-        position="top-center"
+        position="top-right"
         autoClose={2000}
-        limit={1}
+        limit
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
         rtl
+        transition={Zoom}
         pauseOnFocusLoss
         draggable
         pauseOnHover
