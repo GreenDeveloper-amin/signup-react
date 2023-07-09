@@ -59,13 +59,13 @@ const Signin = () => {
       <form
         onSubmit={submitHandler}
         action="#"
-        className="flex flex-col w-[300px] items-center    border border-green-300 pb-8  rounded bg-white ">
+        className="flex flex-col w-[300px] items-center md:w-[400px] border border-green-300 pb-8  rounded bg-white ">
         <p className="text-3xl mt-4 mb-3 text-green-400 transition-all duration-300">
           ثبت نام
         </p>
 
         <Inputs
-          LableStyle=" text-slate-500"
+          LableStyle=" text-slate-500 select-none"
           onTouch={focusHandler}
           onChange={changeHandler}
           value={data.name}
@@ -77,14 +77,14 @@ const Signin = () => {
 
         {errors.name && touched.name && (
           <div className="text-left w-[76%] animate-pulse">
-            <span className="text-[12px] transition-all duration-300 m-0 text-left px-2 py-1 bg-red-200 mb-2 rounded   text-rose-500 shadow-lg ">
+            <span className="text-[12px] select-none transition-all duration-300 m-0 text-left px-2 py-1 bg-red-200 mb-2 rounded   text-rose-500 shadow-lg ">
               {errors.name}
             </span>
           </div>
         )}
 
         <Inputs
-          LableStyle=" text-slate-500"
+          LableStyle=" text-slate-500 select-none"
           onTouch={focusHandler}
           onChange={changeHandler}
           value={data.email}
@@ -96,14 +96,14 @@ const Signin = () => {
 
         {errors.email && touched.email && (
           <div className="text-left w-[76%] animate-pulse">
-            <span className="text-[12px] transition-all duration-300 m-0 text-left px-2 py-1 bg-red-200 mb-2 rounded   text-rose-500 shadow-lg ">
+            <span className="text-[12px] select-none transition-all duration-300 m-0 text-left px-2 py-1 bg-red-200 mb-2 rounded   text-rose-500 shadow-lg ">
               {errors.email}
             </span>
           </div>
         )}
 
         <Inputs
-          LableStyle=" text-slate-500"
+          LableStyle=" text-slate-500 select-none"
           onTouch={focusHandler}
           onChange={changeHandler}
           value={data.password}
@@ -115,14 +115,14 @@ const Signin = () => {
 
         {errors.password && touched.password && (
           <div className="text-left w-[76%] animate-pulse">
-            <span className="text-[12px] transition-all duration-300 m-0 text-left px-2 py-1 bg-red-200 mb-2 rounded   text-rose-500 shadow-lg ">
+            <span className="text-[12px] select-none transition-all duration-300 m-0 text-left px-2 py-1 bg-red-200 mb-2 rounded   text-rose-500 shadow-lg ">
               {errors.password}
             </span>
           </div>
         )}
 
         <Inputs
-          LableStyle=" text-slate-500"
+          LableStyle=" text-slate-500 select-none"
           onTouch={focusHandler}
           onChange={changeHandler}
           value={data.confirmPassword}
@@ -134,7 +134,7 @@ const Signin = () => {
 
         {errors.confirmPassword && touched.confirmPassword && (
           <div className="text-left w-[76%] animate-pulse">
-            <span className="text-[12px] transition-all duration-300 m-0 text-left px-2 py-1 bg-red-200 mb-2 rounded   text-rose-500 shadow-lg ">
+            <span className="text-[12px] select-none transition-all duration-300 m-0 text-left px-2 py-1 bg-red-200 mb-2 rounded   text-rose-500 shadow-lg ">
               {errors.confirmPassword}
             </span>
           </div>
@@ -146,7 +146,7 @@ const Signin = () => {
           value={data.isAccept}
           containerStyle="justify-between items-center my-6 w-[76%] flex-row-reverse"
           LableStyle=" text-blue-400 text-[17px] w-full "
-          inputstyle="w-[31px] h-[30px] checked:bg-green-300 border-2 border-blue-400 transition-all duration-300 
+          inputstyle="w-[30px] md:w-[30px] h-[30px] checked:bg-green-300 border-2 border-blue-400 transition-all duration-300 
           checked:rounded-[80%] checked:border-2 checked:border-blue-500 hover:animate-spin"
           type="checkbox"
           label="من با تمام قوانین موافقم"
@@ -154,7 +154,7 @@ const Signin = () => {
         />
         {errors.isAccept && touched.isAccept && (
           <div className="text-right w-[76%] animate-pulse">
-            <span className="text-[12px] transition-all duration-300 text-left px-2 py-1 bg-red-200 mb-2 rounded relative bottom-5  text-rose-500 shadow-lg ">
+            <span className="text-[12px] select-none transition-all duration-300 text-left px-2 py-1 bg-red-200 mb-2 rounded relative bottom-5  text-rose-500 shadow-lg ">
               {errors.isAccept}
             </span>
           </div>
